@@ -1,0 +1,28 @@
+body{font-family: 'Roboto', sans-serif;}
+
+h1{
+    color: #0c4414;
+    text-decoration: underline ;
+}
+
+a{
+    text-decoration: none;
+    color: #5b80b2;
+}
+
+.card{
+    transition: transform .1s;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.nav-link{
+    color: white;
+}
+
+i{
+    font-size: 30px;
+}
