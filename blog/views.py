@@ -1,10 +1,9 @@
-
+from rest_framework import viewsets
+from .serializers import PostSerializer
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-
 from .form import PostForm
 from .models import Post
-
 
 
 
@@ -46,3 +45,11 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+class PostViewSet(viewsets.ModelViewSet):
+    serializer_class = PostSerializer
+    queryset = Post.objects.all()
+    # post = Post.objects.filter(id=1)
+
+
+
