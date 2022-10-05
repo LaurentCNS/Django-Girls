@@ -3,6 +3,7 @@ from .serializers import PostSerializer
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .form import PostForm
+from rest_framework import permissions
 from .models import Post
 
 
@@ -49,7 +50,13 @@ def post_edit(request, pk):
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    # post = Post.objects.filter(id=1)
+    permission_classes = [permissions.IsAuthenticated]
+
+class AuthorViewSet(viewsets.ModelViewSet):
+    serializer_class = PostSerializer
+    queryset = Post.author
+    permission_classes = [permissions.IsAuthenticated]
+
 
 
 
